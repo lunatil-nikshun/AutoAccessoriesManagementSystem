@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block title %} Cart Page {% endblock %}
+
+{% block content %}
+<div class="small-container cart-page">
+    <div class="cart-info">
+        <table>
+            <tr>
+                <th>Product</th>
+                <th>Quantity<th>
+                
+            </tr>
+            {% for cart_item in cart_items %}
+            <tr>
+                <td>
+                    <div>
+                        {{ cart_item.accessories.name }} 
+                        <a href="{% url 'remove_from_cart' cart_item.id %}">Remove</a>
+                        {% if accessorie.image %}
+                        <div>
+                            <img src="{{ accessorie.image.url }}" class="img-fluid rounded">
+                        </div>
+                        {% else %}
+                        <p>No image</p>
+                        {% endif %}
+                    </div>
+                </td>
+                <td>{{ cart_item.quantity }}</td>
+                
+            {% endfor %}
+            </tr>
+        </table>
+        <div class="buttonss">
+            <a href="{% url 'part_list' %}"><button class="btn btn-primary back-button2">Back to Shopping</button></a>
+        </div>
+        <div>
+            <a href="{% url 'proceed_to_pay' %}"><button class="btn btn-primary back-button1">Proceed To Pay</button></a>
+        </div>
+    </div>
+</div>
+
+<style>
+    .cart-page{
+        margin: 50px;
+    }
+    .cart-info{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    table{
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th{
+        text-align: left;
+        padding: 5px;
+        color: white;
+        background-color: #00111a;
+        font-weight: normal;
+    }
+    td a{
+        color: #ff523b;
+        font-size: 12px;
+    }
+    a{
+        color : #fff;
+    }
+    
+    .back-button1{
+        margin-left : 1005px;
+        margin-top : 350px;
+    }
+    .back-button2{
+        margin-top : 350px;
+    }
+</style>
+{% endblock %}

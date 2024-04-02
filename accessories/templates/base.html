@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        .bgg{
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-position: center bottom;
+        }
+        *{
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" type="text/css">
+    <head>
+        <title>Auto Accessories Management System</title>
+    </head>
+    <!--style="background-image: url(/accessories/static/accessories/images/new.jpg);"-->
+    <body class="bgg" >
+        <header>
+            {% include 'accessories/nav.html' %}
+        </header>
+
+        <div>
+            {% block content %}
+            Welcome to Auto Accessories Management System
+            {% endblock content %}
+        </div>
+
+        <body>
+            <footer class="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="footer-col">
+                            <h4>Company</h4>
+                            <ul>
+                                <li><a href="">About us</a></li>
+                                <li><a href="">Our services</a></li>
+                                <li><a href="">Privacy Policy</a></li>
+                                <li><a href="">Affiliate Program</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-col">
+                            <h4>Get Help</h4>
+                            <ul>
+                                <li><a href="">FAQ</a></li>
+                                <li><a href="">Shipping</a></li>
+                                <li><a href="">Returns</a></li>
+                                <li><a href="">Order Status</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-col">
+                            <h4>Online Shop</h4>
+                            <ul>
+                                <li><a href="{% url 'home_car' %}">Car Parts</a></li>
+                                <li><a href="{% url 'home_bike' %}">Bike Parts</a></li>
+                                <li><a href="{% url 'home_cycle' %}">Cycle Parts</a></li>
+                                <li><a href="{% url 'part_list' %}">Other Parts</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-col">
+                            <h4>Follow us</h4>
+                            <div class="social-links">
+                                <a href="https://www.facebook.com/nikshun.patil.79?mibextid=LQQJ4d" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                <a href=""><i class="fab fa-twitter"></i></a>
+                                <a href="https://www.instagram.com/_lunatic_nikshun?igsh=ZXRpaDF2YnRsbjk2&utm_source=qr" target="_blank"><i class="fab fa-instagram"></i></a>
+                                <a href="https://www.linkedin.com/in/nikshun-patil-5a0492250?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </body>
+        <style>
+            .container{
+                max-width: 1170px;
+                margin: auto;
+            }
+            .row{
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .footer{
+                background-color: #24262b;
+                height: 380px;
+            }
+            .footer-col ul{
+                list-style: none;
+                padding: 30px 0;
+            }
+            .footer-col{
+                width: 25%;
+                padding: 0 15px;
+            }
+            .footer-col h4{
+                font-size: 18px;
+                color: #ffffffff;
+                text-transform: capitalize;
+                margin-top: 100px;
+                font-weight: 500;
+                position: relative;
+            }
+            .footer-col h4::before{
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: -10px;
+                background-color: #e91e63;
+                height: 2px;
+                box-sizing: border-box;
+                width: 50px;
+            }
+            .footer-col ul li:not(:last-child){
+                margin-bottom: 10px;
+            }
+            .footer-col ul li a{
+                font-size: 16px;
+                text-transform: capitalize;
+                color: #ffffff;
+                text-decoration: none;
+                font-weight: 300;
+                color: #bbbbbb;
+                display: block;
+            }
+            .footer-col ul li a:hover{
+                color: #ffffff;
+                padding-left: 8px;
+            }
+            .footer-col .social-links a{
+                display: inline-block;
+                height: 40px;
+                width: 40px;
+                background-color: rgba(255, 255, 255, 0.2);
+                margin-right: 0 10px 10px 0;
+                text-align: center;
+                line-height: 40px;
+                border-radius: 50%;
+                color: #ffffff;
+                transition: all 0.5s ease;
+                margin-top: 10px;
+            }
+            .footer-col .social-links a:hover{
+                color: #24262b;
+                background-color: #ffffffff;
+            }
+        </style>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+</html>

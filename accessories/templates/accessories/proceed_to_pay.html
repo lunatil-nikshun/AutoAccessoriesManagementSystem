@@ -1,0 +1,199 @@
+{% extends 'base.html' %}
+
+{% block title %} Proceed to Pay Page  {% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+<div class="container-proceed">
+
+    <form action="{% url 'payment_confirmation' %}" method="get">
+
+        <div class="row">
+
+            <div class="col">
+
+                <h3 class="title">billing address</h3>
+
+                <div class="inputBox">
+                    <span>Full name :</span>
+                    <input type="text" placeholder="Nikshun Patil">
+                </div>
+                <div class="inputBox">
+                    <span>Email :</span>
+                    <input type="email" placeholder="example@example.com">
+                </div>
+                <div class="inputBox">
+                    <span>Address :</span>
+                    <input type="text" placeholder="Room - street - locality">
+                </div>
+                <div class="inputBox">
+                    <span>City :</span>
+                    <input type="text" placeholder="City">
+                </div>
+
+                <div class="flex">
+                    <div class="inputBox">
+                        <span>State :</span>
+                        <input type="text" placeholder="Maharashtra">
+                    </div>
+                    <div class="inputBox">
+                        <span>Zip code :</span>
+                        <input type="text" placeholder="Enter your zip code">
+                    </div>
+                </div>
+                <div class="flex">
+                  <h6>Total Amount :</h6>
+                  <p>{{ total_amount }}</p>
+                </div>
+            </div>
+
+            <div class="col">
+
+                <h3 class="title">Payment</h3>
+
+                <div class="inputBox">
+                    <span>Cards accepted :</span>
+                    <img src="/media/home_page_images/card_img.png" alt="">
+                </div>
+                <div class="inputBox">
+                    <span>Name on card :</span>
+                    <input type="text" placeholder="As per card">
+                </div>
+                <div class="inputBox">
+                    <span>Credit Card Number :</span>
+                    <input type="number" placeholder="1111-2222-3333-4444">
+                </div>
+                <div class="inputBox">
+                    <span>Expiry month :</span>
+                    <input type="text" placeholder="">
+                </div>
+
+                <div class="flex">
+                    <div class="inputBox">
+                        <span>Expiry year :</span>
+                        <input type="number" placeholder="Expiry-year">
+                    </div>
+                    <div class="inputBox">
+                        <span>CVV :</span>
+                        <input type="text" placeholder="1234">
+                    </div>
+                </div>
+
+            </div>
+    
+        </div>
+        {% csrf_token %}
+        <input type="hidden" name="total_amount" value="total_amount">
+        <input type="submit" value="proceed to checkout" class="submit-btn">
+
+    </form>
+
+</div>    
+    
+</body>
+
+
+<style>
+
+
+
+
+.container-proceed{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:25px;
+    min-height: 100vh;
+    
+  }
+  
+  .container-proceed form{
+    padding:20px;
+    width:700px;
+    background: #fff;
+    box-shadow: 0 5px 10px rgba(0,0,0,.1);
+  }
+  
+  .container-proceed form .row{
+    display: flex;
+    flex-wrap: wrap;
+    gap:15px;
+  }
+  
+  .container-proceed form .row .col{
+    flex:1 1 250px;
+  }
+  
+  .container-proceed form .row .col .title{
+    font-size: 20px;
+    color:#333;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+  }
+  
+  .container-proceed form .row .col .inputBox{
+    margin:15px 0;
+  }
+  
+  .container-proceed form .row .col .inputBox span{
+    margin-bottom: 10px;
+    display: block;
+  }
+  
+  .container-proceed form .row .col .inputBox input{
+    width: 100%;
+    border:1px solid #ccc;
+    padding:10px 15px;
+    font-size: 15px;
+    text-transform: none;
+  }
+  
+  .container-proceed form .row .col .inputBox input:focus{
+    border:1px solid #000;
+  }
+  
+  .container-proceed form .row .col .flex{
+    display: flex;
+    gap:15px;
+  }
+  
+  .container-proceed form .row .col .flex .inputBox{
+    margin-top: 5px;
+  }
+  
+  .container-proceed form .row .col .inputBox img{
+    height: 34px;
+    margin-top: 5px;
+    filter: drop-shadow(0 0 1px #000);
+  }
+  
+  .container-proceed form .submit-btn{
+    width: 100%;
+    padding:12px;
+    font-size: 17px;
+    background: #27ae60;
+    color:#fff;
+    margin-top: 5px;
+    cursor: pointer;
+  }
+  
+  .container-proceed form .submit-btn:hover{
+    background: #2ecc71;
+  }
+</style>
+
+
+</html>
+{% endblock %}

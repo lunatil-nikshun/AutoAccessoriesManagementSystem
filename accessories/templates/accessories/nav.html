@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <img src="/media/home_page_images/mechanic-garage-logo-template-vector-44593047.jpg" class="garage">
+    &nbsp; &nbsp;
+    <a href="#" class="navbar-brand">Auto Accessories Management System</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data="#navbarSupportedContent">
+        <span class="navbar-toggle-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" href="{% url 'my_login' %}">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'part_list' %}">List</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'part_create' %}">New Part</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'my_login' %}">Login</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'my_logout' %}">Logout</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a href="{% url 'cart' %}"><i class="fa fa-shopping-cart fa-2x navbar-cart"></i></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<style>
+    .garage{
+        width: 50px;
+        height: 50px;
+    }
+    .navbar-cart{
+        color: #fff;
+    }
+</style>

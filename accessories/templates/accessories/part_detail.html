@@ -1,0 +1,65 @@
+{% extends 'base.html'%}
+
+{% block title %} Add Part {% endblock%}
+
+
+{% block content %}
+
+<div class="container-detail detail">
+    <div class="row">
+        <div class="col-2 col-smallcc">
+            <img src="{{ accessories.image }}">
+        </div>
+        <div class="col-2 ">
+            {% for accessorie in accessories %}
+            <h1>{{ accessorie.name }}</h1>
+            <h4> &#x20B9; {{ accessorie.price }}</h4>
+            
+            <form action="{% url 'add_to_cart' pk=accessorie.pk %}"  method="post">
+                {% csrf_token %}
+                <div class="">
+                    <label for="quantity"> Quantity : <input type="number" id="quantity" name="quantity" min="1" value="1"></label> 
+                    <button type="submit" class="btn btn-primary btn-res">Add To Cart</button>
+                </div>
+            </form>
+            <h3>Product details</h3>
+            <p>{{ accessorie.detail }}</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<style>
+
+.btn-res{
+    width: 110px;
+    margin-top: 10px;
+    font-size: 14px;
+    margin-left: 35px;
+}
+
+.container-detail{
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items : center;
+   
+}
+
+
+.detail .col-smallcc{
+    padding: 20px;
+}
+
+.detail .col-smallcc img{
+    padding: 0px;
+}
+
+
+
+
+
+</style>
+
+
+{% endblock%}

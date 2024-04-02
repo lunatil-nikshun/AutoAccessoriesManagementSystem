@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %} Part Payment Confirmation Page {% endblock %}
+
+{% block content %}
+<div class="row razor-row">
+    <div class="container-razor">
+        <h1>Payment Confirmation</h1>
+        <button id="razorpay" type="btn btn-primary">Pay With Razorpay</button>
+        <p>{{ total_amount }}</p>
+
+        <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+        <script>
+            document.getElementById('razorpay').addEventListener('click', function(e){
+
+                var options ={
+                    key: "{{ razorpay_key_id }}",
+                    amount: '{{ order_amount }}',
+                    currency : 'INR',
+                    name: 'Auto Parts shop',
+                    description: 'Part Purchase Description',
+                    prefill: {
+                        name : 'Belingam Jude',
+                        email: 'belingham05@gmail.com'
+                    },
+                    theme : {
+                        color: "#bfff80"
+                    },
+                    handler: function(response){
+                        alert('Payment was Succesfully done')
+                    }
+                };
+
+                console.log("test1 ------------------------> ", "{{ settings.RAZORPAY_TEST_KEY_ID}}")
+                var razor_object = new Razorpay(options);
+                console.log("test 2------------------------> ", "{{ settings.RAZORPAY_TEST_KEY_ID}}")
+                razor_object.open();
+                e.preventDefault();
+            });
+        </script>
+    </div>
+</div>
+
+<style>
+    .container-razor{
+        padding-bottom : 350px;
+        max-width: 1170px;
+        margin: auto;
+        margin-top : 35px;
+    }
+    .razor-row{
+        background-image: url(/media/home_page_images/payment2.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height : 100vh;
+        width : 100%;
+    }
+</style>
+
+
+{% endblock %}
